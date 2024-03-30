@@ -1,4 +1,4 @@
-import { useEffectOnce, useLocalStorage, useReadLocalStorage } from "usehooks-ts";
+import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
 import { Chain, hardhat } from "viem/chains";
 import { Connector, useAccount, useConnect } from "wagmi";
 import scaffoldConfig from "~~/scaffold.config";
@@ -72,11 +72,11 @@ export const useAutoConnect = (): void => {
     },
   });
 
-  useEffectOnce(() => {
-    const initialConnector = getInitialConnector(getTargetNetworks()[0], walletId, connectState.connectors);
+  // useEffectOnce(() => {
+  //   const initialConnector = getInitialConnector(getTargetNetworks()[0], walletId, connectState.connectors);
 
-    if (initialConnector?.connector) {
-      connectState.connect({ connector: initialConnector.connector, chainId: initialConnector.chainId });
-    }
-  });
+  //   if (initialConnector?.connector) {
+  //     connectState.connect({ connector: initialConnector.connector, chainId: initialConnector.chainId });
+  //   }
+  // });
 };

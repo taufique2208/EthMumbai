@@ -23,7 +23,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     console.log("Connected Address:", connectedAddress);
     if (connectedAddress) {
-      if (connectedAddress.toLowerCase() === "0xA99AE32AA00d67bD9d1acD9b96c704AD0dEb66B1") { // Ensure case-insensitive check
+      if (connectedAddress === "0x115Fa80d1D00C38D88D2c024fe5C6f9d5ca34bE3") { // Ensure case-insensitive check
         router.push("/admin"); // Navigate to admin page
       } else {
         router.push("/student"); // Navigate to student page
