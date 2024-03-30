@@ -6,10 +6,19 @@ import { Address } from "~~/components/scaffold-eth";
 import {  RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
+import { useScaffoldContractRead } from "~~/hooks/scaffold-eth"
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
   const router = useRouter();
+
+  // const { data: totalCounter } = useScaffoldContractRead({
+  //   contractName: "TestEvaluation",
+  //   functionName: "addQuestion",
+  //   args: ["0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830"],
+  // });
+  
+  
 
   useEffect(() => {
     console.log("Connected Address:", connectedAddress);
@@ -20,7 +29,7 @@ const Home: NextPage = () => {
         router.push("/student"); // Navigate to student page
       }
     }
-  }, [connectedAddress,router]);
+  }, [connectedAddress]);
 
   return (
     <>
