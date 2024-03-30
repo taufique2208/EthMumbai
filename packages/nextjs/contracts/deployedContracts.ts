@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   1442: {
     TestEvaluation: {
-      address: "0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830",
+      address: "0xa320bC0Dab2D0C556f270bcaebd86C0E85516d0E",
       abi: [
         {
           inputs: [],
@@ -22,12 +22,6 @@ const deployedContracts = {
               internalType: "address",
               name: "user",
               type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "testSetNumber",
-              type: "uint256",
             },
             {
               components: [
@@ -91,32 +85,8 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "currentTestSet",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
               name: "user",
               type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "testSetNumber",
-              type: "uint256",
             },
           ],
           name: "getUserResponses",
@@ -169,19 +139,6 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "uint256",
-              name: "testSetNumber",
-              type: "uint256",
-            },
-          ],
-          name: "startTest",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
               components: [
                 {
                   internalType: "uint256",
@@ -207,25 +164,6 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "testSets",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "setNumber",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
               internalType: "address",
               name: "newAdmin",
               type: "address",
@@ -234,6 +172,35 @@ const deployedContracts = {
           name: "transferAdmin",
           outputs: [],
           stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userResponses",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "questionId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "chosenOptionIndex",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
       ],
