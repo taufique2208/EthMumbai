@@ -207,6 +207,208 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
   },
+  2442: {
+    TestEvaluation: {
+      address: "0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "questionId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "chosenOptionIndex",
+                  type: "uint256",
+                },
+              ],
+              indexed: false,
+              internalType: "struct TestEvaluation.UserResponse[]",
+              name: "responses",
+              type: "tuple[]",
+            },
+          ],
+          name: "ResponseSubmitted",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "string[]",
+              name: "options",
+              type: "string[]",
+            },
+            {
+              internalType: "uint256",
+              name: "rightOptionIndex",
+              type: "uint256",
+            },
+          ],
+          name: "addQuestion",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "admin",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+          ],
+          name: "getUserResponses",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "questionId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "chosenOptionIndex",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct TestEvaluation.UserResponse[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "questions",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "rightOptionIndex",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "questionId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "chosenOptionIndex",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct TestEvaluation.UserResponse[]",
+              name: "responses",
+              type: "tuple[]",
+            },
+          ],
+          name: "submitResponse",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newAdmin",
+              type: "address",
+            },
+          ],
+          name: "transferAdmin",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userResponses",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "questionId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "chosenOptionIndex",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
   31337: {
     TestEvaluation: {
       address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
