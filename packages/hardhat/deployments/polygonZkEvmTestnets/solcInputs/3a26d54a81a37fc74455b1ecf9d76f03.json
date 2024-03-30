@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/YourContract.sol": {
+      "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity ^0.8.0;\r\n\r\ncontract TestEvaluation {\r\n\r\n    address public admin;\r\n\r\n    modifier onlyAdmin() {\r\n        require(msg.sender == admin, \"Only admin can call this function\");\r\n        _;\r\n    }\r\n\r\n    constructor() {\r\n        admin = msg.sender; // The deployer of the contract is set as the initial admin\r\n    }\r\n\r\n    function transferAdmin(address newAdmin) public onlyAdmin {\r\n        admin = newAdmin; // Allows the current admin to transfer admin rights to another address\r\n    }\r\n\r\n\r\n\r\n    // Structure to represent a question with options and correct answer\r\n    struct Question {\r\n        uint256 id;\r\n        string[] options; // Array of option strings (a, b, c, d)\r\n        uint256 rightOptionIndex; // Index of the correct option in the options array\r\n    }\r\n\r\n    // Structure to represent a user's response for a question\r\n    struct UserResponse {\r\n        uint256 questionId;\r\n        uint256 chosenOptionIndex;\r\n    }\r\n\r\n    // Structure to represent a test set with questions and user responses\r\n    struct TestSet {\r\n        uint256 setNumber;\r\n        mapping(address => UserResponse[]) responses; // Mapping of user address to their responses\r\n    }\r\n\r\n    // Mapping of question ID to Question struct\r\n    mapping(uint256 => Question) public questions;\r\n\r\n    // Mapping of user address to TestSet number they're taking\r\n    mapping(address => uint256) public currentTestSet;\r\n\r\n    // Array of TestSet structs to store test data\r\n    TestSet[] public testSets;\r\n\r\n    // Event emitted when a user submits their test response\r\n    event ResponseSubmitted(address user, uint256 testSetNumber, UserResponse[] responses);\r\n\r\n    // Function to add a question to the contract\r\n    function addQuestion(\r\n        uint256 id,\r\n        string[] calldata options,\r\n        uint256 rightOptionIndex\r\n    ) public onlyAdmin {\r\n        require(options.length == 4, \"Question must have 4 options\");\r\n        require(rightOptionIndex < options.length, \"Right option index out of bounds\");\r\n        questions[id] = Question(id, options, rightOptionIndex);\r\n    }\r\n\r\n    // Function to start taking a test for a specific set number\r\n    function startTest(uint256 testSetNumber) public {\r\n        require(testSetNumber < testSets.length, \"Invalid test set number\");\r\n        currentTestSet[msg.sender] = testSetNumber;\r\n    }\r\n\r\n    // Function for a user to submit their test responses\r\n    function submitResponse(UserResponse[] calldata responses) public {\r\n        require(currentTestSet[msg.sender] > 0, \"Start a test before submitting responses\");\r\n\r\n        uint256 testSetNumber = currentTestSet[msg.sender];\r\n        TestSet storage currentTestSetStorage = testSets[testSetNumber];\r\n\r\n        for (uint256 i = 0; i < responses.length; i++) {\r\n            require(questions[responses[i].questionId].id > 0, \"Invalid question ID\"); // Check if question exists\r\n            currentTestSetStorage.responses[msg.sender].push(responses[i]);\r\n        }\r\n\r\n        emit ResponseSubmitted(msg.sender, testSetNumber, responses);\r\n        delete testSets[testSetNumber].responses[msg.sender]; // Clear user's current test set after submission\r\n    }\r\n\r\n    // Function to retrieve a user's responses for a specific test set (for internal use or authorized access)\r\n    function getUserResponses(address user, uint256 testSetNumber) public view returns (UserResponse[] memory) {\r\n        require(testSetNumber < testSets.length, \"Invalid test set number\");\r\n        return testSets[testSetNumber].responses[user];\r\n    }\r\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

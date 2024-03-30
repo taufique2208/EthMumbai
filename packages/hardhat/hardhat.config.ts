@@ -82,8 +82,12 @@ const config: HardhatUserConfig = {
       url: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${providerApiKey}`,
       accounts: [deployerPrivateKey],
     },
-    polygonZkEvmTestnet: {
+    polygonZkEvmCardona: {
       url: `https://polygon-zkevm-cardona.blockpi.network/v1/rpc/public`,
+      accounts: [deployerPrivateKey],
+    },
+    polygonZkEvmTestnets: {
+      url: `https://rpc.public.zkevm-test.net`,
       accounts: [deployerPrivateKey],
     },
     gnosis: {

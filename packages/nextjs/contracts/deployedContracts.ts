@@ -5,10 +5,15 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
-  2442: {
+  1442: {
     TestEvaluation: {
-      address: "0x9AA3ecB3449C527bA52b14253CD49D350356f529",
+      address: "0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830",
       abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
         {
           anonymous: false,
           inputs: [
@@ -67,6 +72,19 @@ const deployedContracts = {
           name: "addQuestion",
           outputs: [],
           stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "admin",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
         {
@@ -203,6 +221,19 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newAdmin",
+              type: "address",
+            },
+          ],
+          name: "transferAdmin",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
@@ -211,8 +242,13 @@ const deployedContracts = {
   },
   31337: {
     TestEvaluation: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
       abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
         {
           anonymous: false,
           inputs: [
@@ -271,6 +307,19 @@ const deployedContracts = {
           name: "addQuestion",
           outputs: [],
           stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "admin",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
         {
@@ -407,6 +456,19 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newAdmin",
+              type: "address",
+            },
+          ],
+          name: "transferAdmin",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],

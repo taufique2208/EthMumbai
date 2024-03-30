@@ -2,6 +2,24 @@
 pragma solidity ^0.8.0;
 
 contract TestEvaluation {
+
+    address public admin;
+
+    modifier onlyAdmin() {
+        require(msg.sender == admin, "Only admin can call this function");
+        _;
+    }
+
+    constructor() {
+        admin = msg.sender; // The deployer of the contract is set as the initial admin
+    }
+
+    function transferAdmin(address newAdmin) public onlyAdmin {
+        admin = newAdmin; // Allows the current admin to transfer admin rights to another address
+    }
+
+
+
     // Structure to represent a question with options and correct answer
     struct Question {
         uint256 id;
@@ -38,7 +56,7 @@ contract TestEvaluation {
         uint256 id,
         string[] calldata options,
         uint256 rightOptionIndex
-    ) public {
+    ) public onlyAdmin {
         require(options.length == 4, "Question must have 4 options");
         require(rightOptionIndex < options.length, "Right option index out of bounds");
         questions[id] = Question(id, options, rightOptionIndex);
