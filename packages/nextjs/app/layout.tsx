@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
 import "~~/styles/globals.css";
+import {TestEvaluationProvider} from '~~/Context/TestEvaluation';
 
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -47,12 +48,14 @@ export const metadata: Metadata = {
 };
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
-  return (
+    return (
     <html suppressHydrationWarning>
       <body>
+        <TestEvaluationProvider>
         <ThemeProvider enableSystem>
           <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
         </ThemeProvider>
+        </TestEvaluationProvider>
       </body>
     </html>
   );

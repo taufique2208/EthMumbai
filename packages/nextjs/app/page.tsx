@@ -6,7 +6,6 @@ import { Address } from "~~/components/scaffold-eth";
 import {  RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
-import { useScaffoldContractRead } from "~~/hooks/scaffold-eth"
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();

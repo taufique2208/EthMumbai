@@ -2017,7 +2017,7 @@ __metadata:
     eslint-config-next: ^14.0.4
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
-    ethers: ^6.11.1
+    ethers: 5.7.2
     next: ^14.1.4
     next-themes: ^0.2.1
     nprogress: ^0.2.0
@@ -6838,7 +6838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:^5.7.0, ethers@npm:^5.7.2":
+"ethers@npm:5.7.2, ethers@npm:^5.7.0, ethers@npm:^5.7.2":
   version: 5.7.2
   resolution: "ethers@npm:5.7.2"
   dependencies:
@@ -6876,7 +6876,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:^6.10.0, ethers@npm:^6.11.1":
+"ethers@npm:^6.10.0, ethers@npm:latest":
   version: 6.11.1
   resolution: "ethers@npm:6.11.1"
   dependencies:
@@ -11667,10 +11667,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    ethers: latest
     husky: ^8.0.1
     lint-staged: ^13.0.3
     next: ^14.1.4
     usehooks-ts: ^3.0.2
+    web3modal: ^1.9.12
   languageName: unknown
   linkType: soft
 

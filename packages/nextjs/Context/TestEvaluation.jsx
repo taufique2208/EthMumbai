@@ -1,82 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import Web3Modal from "web3modal";
-import { ethers } from "ethers";
+// Import necessary modules from Next.js
+'use client';
 
+import React, { useState } from 'react';
+import { ethers } from 'ethers';
+// import { useAccount } from "wagmi";
+
+// INTERNAL IMPORT
 import { TestEvaluationABI, TestEvaluationAddress } from './constants';
 
 // Function to fetch contract instance
-const fetchContract = (signerOrProvider) => new ethers.Contract(TestEvaluationAddress, TestEvaluationABI, signerOrProvider);
+// const fetchContract = (signerOrProvider) =>
+//   new ethers.Contract(TestEvaluationAddress, TestEvaluationABI, signerOrProvider);
 
 export const TestEvaluationContext = React.createContext();
 
 export const TestEvaluationProvider = ({ children }) => {
-    const [currentAccount, setCurrentAccount] = useState("");
-    const [testEvaluationContract, setTestEvaluationContract] = useState(null);
+    const [currentAccount, setCurrentAccount] = useState('');
+    // const { address: connectedAddress } = useAccount();
+    // setCurrentAccount(connectedAddress);
+    async function getContract() {
+        // Connect to an Ethereum provider
+        const provider = new ethers.providers.JsonRpcProvider("https://rpc.public.zkevm-test.net");
 
-    useEffect(() => {
-        const initialize = async () => {
-            try {
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
-                setCurrentAccount(await signer.getAddress());
-                setTestEvaluationContract(fetchContract(signer));
-            } catch (error) {
-                console.error("Error initializing TestEvaluation contract:", error);
-            }
-        };
+        const contract = new ethers.Contract(TestEvaluationAddress, TestEvaluationABI, provider);
 
-        initialize();
-    }, []);
+        return contract;
+    }
+
 
     // Function to add a question to the contract
     const addQuestion = async (id, options, rightOptionIndex) => {
+        const contract = await getContract();
+
         try {
-            await testEvaluationContract.addQuestion(id, options, rightOptionIndex);
-            console.log("Question added successfully.");
+            await contract.addQuestion(id, options, rightOptionIndex);
+            console.log('Question added successfully.');
         } catch (error) {
-            console.error("Error adding question:", error);
+            console.error('Error adding question:', error);
         }
     };
 
     // Function to submit user responses
     const submitResponse = async (responses) => {
+        const contract = await getContract();
         try {
-            await testEvaluationContract.submitResponse(responses);
-            console.log("Response submitted successfully.");
+            // Convert responses object to an array of { questionId, optionIndex }
+            const submittedData = Object.entries(responses).map(([questionId, optionId]) => {
+                const optionIndex = Object.keys(math.find(item => item.question_id === parseInt(questionId)).options).findIndex(key => key === optionId);
+                return {
+                    questionId: parseInt(questionId),
+                    optionIndex
+                };
+            });
+    
+            await contract.submitResponse(submittedData);
+            console.log('Response submitted successfully.');
         } catch (error) {
-            console.error("Error submitting response:", error);
+            console.error('Error submitting response:', error);
         }
     };
+    
 
     // Function to retrieve user responses
     const getUserResponses = async () => {
+        const contract = await getContract();
         try {
-            return await testEvaluationContract.getUserResponses(currentAccount);
-        } catch (error) {
-            console.error("Error retrieving user responses:", error);
-            return [];
-        }
-    };
 
-    // Function to connect wallet
-    const connectWallet = async () => {
-        try {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-            setCurrentAccount(await signer.getAddress());
+            return await contract.getUserResponses(currentAccount);
         } catch (error) {
-            console.error("Error connecting wallet:", error);
+            console.error('Error retrieving user responses:', error);
+            return [];
         }
     };
 
     return (
         <TestEvaluationContext.Provider
             value={{
-                currentAccount,
+                // currentAccount,
                 addQuestion,
                 submitResponse,
                 getUserResponses,
-                connectWallet
             }}
         >
             {children}
