@@ -73,6 +73,18 @@ Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building wit
 
 To know more about its features, check out our [website](https://scaffoldeth.io).
 
+
+## Deployment
+
+This project can be deployed to various environments. Here's a quick overview:
+
+| Option | Link |
+|---|---|
+| **Polygon zkEVM Testnet** | [Polygon zkEVM]((https://testnet-zkevm.polygonscan.com/address/0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830)) |
+| **Polygon zkEVM Cardona** | [Polygon zkEVM Cardona]((https://cardona-zkevm.polygonscan.com/address/0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830)) |
+
+
+
 ## Contributing to Scaffold-ETH 2
 
 We welcome contributions to Scaffold-ETH 2!
