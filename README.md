@@ -1,22 +1,22 @@
-+**Digitest: Decentralizing Online Assessments**
+# +**Digitest: Decentralizing Online Assessments**
 
-**Introduction**
+## **Introduction**
 
 Digitest is a revolutionary online assessment portal built with the goal of decentralization and enhanced data security. We leverage blockchain technology to create a secure and transparent platform for conducting assessments and storing student responses.
 
-**Core Features**
+## **Core Features**
 
 - **Decentralization:** By utilizing blockchain technology, Digitest empowers you to eliminate reliance on centralized servers, fostering increased security and tamper-proof data storage.
 - **Enhanced Data Security:** Student responses are encrypted before storage, ensuring only authorized users – admins and students themselves – can access them. This safeguards data from unauthorized access or potential breaches.
 - **Transparency:** With blockchain technology, the entire assessment process becomes more transparent. All participants (assessors, admins, students) have access to an immutable record of events, promoting trust and accountability.
 
-**Technology Stack**
+## **Technology Stack**
 
 - **Scaffold ETH 2:** Digitest's foundation is built upon Scaffold ETH 2, a robust framework for rapid and efficient Ethereum full-stack development. This framework streamlines the creation of web applications that interact with blockchain networks.
 - **Next.js:** Next.js serves as the web application framework, offering server-side rendering (SSR) and static site generation (SSG) capabilities for optimal performance and user experience.
 - **Hardhat:** We leverage Hardhat, a comprehensive Ethereum development environment, for smart contract compilation, deployment, and testing, ensuring the integrity and reliability of the contracts.
 
-**Scaffold ETH 2 Components**
+## **Scaffold ETH 2 Components**
 
 Digitest effectively utilizes various essential components provided by Scaffold ETH 2:
 
@@ -28,13 +28,13 @@ Digitest effectively utilizes various essential components provided by Scaffold 
 
 Scaffold ETH 2's web hooks provide a powerful mechanism for optimizing read and write operations within our application. This allows us to optimize data fetching and smart contract interactions, enhancing responsiveness and user experience.
 
-**Benefits of Scaffold ETH 2**
+## **Benefits of Scaffold ETH 2**
 
 - **Reduced Development Time:** Scaffold ETH 2's pre-built components and streamlined development process significantly cut down development time, allowing us to focus on core functionalities and innovation.
 - **Simplified Smart Contract Interaction:** The framework facilitates effortless interaction between the web application and smart contracts, ensuring efficient data storage and retrieval.
 - **Improved Developer Experience:** Scaffold ETH 2 contributes to a more productive development experience by offering a user-friendly environment, modular components, and clear documentation.
 
-**Getting Started**
+## **Getting Started**
 
 1. **Project Setup:**
    - To contribute to Digitesr's development, clone this repository:
