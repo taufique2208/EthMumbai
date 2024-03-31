@@ -1,3 +1,4 @@
+"use client"  
 import { useEffect } from "react";
 import { useNetwork } from "wagmi";
 import scaffoldConfig from "~~/scaffold.config";

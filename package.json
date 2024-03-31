@@ -40,9 +40,12 @@
     "lint-staged": "^13.0.3"
   },
   "dependencies": {
-    "ethers": "latest",
+    "@apollo/client": "^3.9.9",
+    "ethers": "^6.11.1",
+    "graphql": "^16.8.1",
     "next": "^14.1.4",
     "usehooks-ts": "^3.0.2",
+    "web3": "^4.7.0",
     "web3modal": "^1.9.12"
   }
 }

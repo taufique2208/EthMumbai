@@ -1,63 +1,95 @@
 'use client'
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { math } from '../../mathtest.json';
 import { useAccount } from "wagmi";
 import { TestEvaluationContext } from '~~/Context/TestEvaluation';
+import {useScaffoldContractWrite} from '~~/hooks/scaffold-eth';
+import { useAutoConnect, useNetworkColor } from "~~/hooks/scaffold-eth";
+import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
+// import { parseEther } from 'viem';
+// import { parseEther } from 'ethers';
+
+
+
 
 const MathTest = () => {
-
+  
   const { address: connectedAddress } = useAccount();
-  const [responses, setResponses] = useState<{ [key: number]: string }>({});
-  const [userAddress, setUserAddress] = useState<string>('');
+  const [responses, setResponses] = useState([]);
+  const [userAddress, setUserAddress] = useState('');
+  
+  const responsesArray = Object.entries(responses).map(([questionId, optionId]) => ({
+    questionId: parseInt(questionId),
+    chosenOptionIndex: parseInt(optionId),
+}));  
+  console.log(responsesArray)
+  const { writeAsync,isLoading, isMining  } = useScaffoldContractWrite({
+    contractName: "YourContract",
+    functionName: "submitResponse",
+    args: [responsesArray] ,// Pass in the responses array
+    blockConfirmations: 1,
+    // value: parseEther("0.1"),
+    onBlockConfirmation: txnReceipt => {
+      console.log("Transaction blockHash", txnReceipt);
+      // Add any additional logic here after transaction confirmation
+    },
+  });
 
-  const {submitResponse} = useContext(TestEvaluationContext)
-
-  const handleOptionChange = (questionId: number, optionId: string) => {
+  const handleOptionChange = (questionId, optionId) => {
     setResponses({ ...responses, [questionId]: optionId });
   };
 
-  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAddressChange = (event) => {
     setUserAddress(event.target.value);
   };
 
 // the data that will be submitted in response
 const handleSubmit = () => {
+  console.log("this is response ", responses);
   // Check if the user has provided their address
   if (connectedAddress == undefined) {
       alert('Please provide your address.');
       return;
   }
+  writeAsync();
 
   // Prepare the data to be submitted
-  const submittedData = Object.entries(responses).map(([questionId, optionId]) => {
-      const questionData = math.find(item => item.question_id === parseInt(questionId));
-      if (questionData) {
-          const optionIndex = Object.keys(questionData.options).findIndex(key => key === optionId);
-          return {
-              questionId: parseInt(questionId),
-              optionIndex,
-              connectedAddress // Add the user's address
-          };
-      }
-      return null;
-  }).filter(Boolean);
+  // const submittedData = Object.entries(responses).map(([questionId, optionId]) => {
+  //     const questionData = math.find(item => item.question_id === parseInt(questionId));
+  //     if (questionData) {
+  //         const optionIndex = Object.keys(questionData.options).findIndex(key => key === optionId);
+  //         return {
+  //             questionId: parseInt(questionId),
+  //             optionIndex,
+  //             connectedAddress // Add the user's address
+  //         };
+  //     }
+  //     return null;
+  // }).filter(Boolean);
 
-  console.log('Submitted Data:', submittedData); // Add this line to log the submitted data
+  // console.log('Submitted Data:', submittedData); // Add this line to log the submitted data
 
   // Pass responses to submitResponse instead of submittedData
-  submitResponse(responses);
+  // submitResponse(responses);
 
-  // Do something with the submittedData, such as sending it to the server or processing it
-  console.log('Submitted Data:', submittedData);
+  // // Do something with the submittedData, such as sending it to the server or processing it
+  // console.log('Submitted Data:', submittedData);
 };
+
+// const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
+//   contractName: "YourContract",
+//   functionName: "submitResponse",
+//   contractFunctionArgs: [responses],
+//   contractAddress: "0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830",
+// }); 
 
 
   // Function to split the math test content into individual tiles
-  const splitIntoTiles = (mathTest: any[]): JSX.Element[] => {
-    const tiles: JSX.Element[] = [];
-    let currentTileContent: any[] = [];
-    let currentQuestionId: number | null = null;
+  const splitIntoTiles = (mathTest) => {
+    const tiles = [];
+    let currentTileContent = [];
+    let currentQuestionId = null;
 
     mathTest.forEach((item) => {
       const questionMatch = item.question.match(/Question (\d+)/);
@@ -82,7 +114,7 @@ const handleSubmit = () => {
   };
 
   // Function to render a tile
-  const renderTile = (tileContent: any[]) => {
+  const renderTile = (tileContent) => {
     return (
       <div className="question-tile mb-8 p-4 " key={tileContent[0].question_id}> {/* Add padding to the question tile */}
         {tileContent.map((item) => (
@@ -103,7 +135,7 @@ const handleSubmit = () => {
                     checked={responses[item.question_id] === optionKey}
                   />
                   <label htmlFor={`option-${item.question_id}-${optionKey}`} className="ml-2">
-                    {optionValue as string} {/* Explicitly type optionValue as string */}
+                    {optionValue} {/* Explicitly type optionValue as string */}
                   </label>
                 </li>
               ))}

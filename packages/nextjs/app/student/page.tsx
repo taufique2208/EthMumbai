@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import {math} from '../mathtest.json';
-import MathTest from './math/page';
+import MathTest from './math/page.jsx';
 
 interface MathQuestion {
   question_id: number;

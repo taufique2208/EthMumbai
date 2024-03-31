@@ -35,7 +35,7 @@ export const useScaffoldContractRead = <
     address: deployedContract?.address,
     abi: deployedContract?.abi,
     watch: true,
-    args,
+      args,
     enabled: !Array.isArray(args) || !args.some(arg => arg === undefined),
     ...(readConfig as any),
   }) as Omit<ReturnType<typeof useContractRead>, "data" | "refetch"> & {

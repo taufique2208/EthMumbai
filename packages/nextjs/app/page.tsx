@@ -22,7 +22,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     console.log("Connected Address:", connectedAddress);
     if (connectedAddress) {
-      if (connectedAddress.toLowerCase() === "0xA99AE32AA00d67bD9d1acD9b96c704AD0dEb66B1") { // Ensure case-insensitive check
+      if (connectedAddress === "0x115Fa80d1D00C38D88D2c024fe5C6f9d5ca34bE3") { // Ensure case-insensitive check
         router.push("/admin"); // Navigate to admin page
       } else {
         router.push("/student"); // Navigate to student page
@@ -32,11 +32,11 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col flex-grow pt-10">
+      <div className="flex items-center flex-col flex-grow pt-10 align-center justify-center">
         <div className="px-5">
           <h1 className="text-center">
             <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-3xl font-bold">Admin</span>
+            <span className="block text-6xl font-bold">DigiTest</span>
           </h1>
           <div className="flex justify-center items-center space-x-2">
             <p className="my-2 font-medium">Connected Address:</p>

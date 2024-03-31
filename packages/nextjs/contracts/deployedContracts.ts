@@ -6,8 +6,210 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   1442: {
+    YourContract: {
+      address: "0x9AA3ecB3449C527bA52b14253CD49D350356f529",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "questionId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "chosenOptionIndex",
+                  type: "uint256",
+                },
+              ],
+              indexed: false,
+              internalType: "struct YourContract.UserResponse[]",
+              name: "responses",
+              type: "tuple[]",
+            },
+          ],
+          name: "ResponseSubmitted",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "string[]",
+              name: "options",
+              type: "string[]",
+            },
+            {
+              internalType: "uint256",
+              name: "rightOptionIndex",
+              type: "uint256",
+            },
+          ],
+          name: "addQuestion",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "admin",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+          ],
+          name: "getUserResponses",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "questionId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "chosenOptionIndex",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct YourContract.UserResponse[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "questions",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "rightOptionIndex",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "questionId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "chosenOptionIndex",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct YourContract.UserResponse[]",
+              name: "responses",
+              type: "tuple[]",
+            },
+          ],
+          name: "submitResponse",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newAdmin",
+              type: "address",
+            },
+          ],
+          name: "transferAdmin",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userResponses",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "questionId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "chosenOptionIndex",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+  2442: {
     TestEvaluation: {
-      address: "0xa320bC0Dab2D0C556f270bcaebd86C0E85516d0E",
+      address: "0x7DCd4318b2b00ffE7786262d7Ce991Bb9b430Afb",
       abi: [
         {
           inputs: [],
@@ -207,9 +409,9 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
   },
-  2442: {
+  31337: {
     TestEvaluation: {
-      address: "0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830",
+      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
       abi: [
         {
           inputs: [],

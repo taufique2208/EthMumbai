@@ -1,3 +1,5 @@
+"use client"
+
 import { CurrencyAmount, Token } from "@uniswap/sdk-core";
 import { Pair, Route } from "@uniswap/v2-sdk";
 import { Address, createPublicClient, http, parseAbi } from "viem";
@@ -24,7 +26,7 @@ export const fetchPriceFromUniswap = async (targetNetwork: ChainWithAttributes):
   ) {
     return 0;
   }
-  try {
+  try { 
     const DAI = new Token(1, "0x6B175474E89094C44Da98b954EedeAC495271d0F", 18);
     const TOKEN = new Token(
       1,
