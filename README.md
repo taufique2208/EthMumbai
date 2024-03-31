@@ -80,9 +80,10 @@ This project can be deployed to various environments. Here's a quick overview:
 
 | Option | Link |
 |---|---|
-| **Polygon zkEVM Testnet** | [Polygon zkEVM]((https://testnet-zkevm.polygonscan.com/address/0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830)) |
-| **Polygon zkEVM Cardona** | [Polygon zkEVM Cardona]((https://cardona-zkevm.polygonscan.com/address/0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830)) |
-
+| **Polygon zkEVM Testnet** | [Polygon zkEVM](https://testnet-zkevm.polygonscan.com/address/0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830) |
+| **Polygon zkEVM Cardona** | [Polygon zkEVM Cardona](https://cardona-zkevm.polygonscan.com/address/0x6Dc26ba4aec470149d0596B2DC9F5fC4213a9830) |
+| **The Graph** | [The Graph sub-graph link](https://thegraph.com/studio/subgraph/deployexam/) |
+| **The Graph QL-API** | [Deployment Query URL](https://api.studio.thegraph.com/query/69521/deployexam/version/latest) |
 
 
 ## Contributing to Scaffold-ETH 2
