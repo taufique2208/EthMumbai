@@ -1,77 +1,65 @@
-# 🏗 Scaffold-ETH 2
++**Digitest: Decentralizing Online Assessments**
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+**Introduction**
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+Digitest is a revolutionary online assessment portal built with the goal of decentralization and enhanced data security. We leverage blockchain technology to create a secure and transparent platform for conducting assessments and storing student responses.
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+**Core Features**
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+- **Decentralization:** By utilizing blockchain technology, Digitest empowers you to eliminate reliance on centralized servers, fostering increased security and tamper-proof data storage.
+- **Enhanced Data Security:** Student responses are encrypted before storage, ensuring only authorized users – admins and students themselves – can access them. This safeguards data from unauthorized access or potential breaches.
+- **Transparency:** With blockchain technology, the entire assessment process becomes more transparent. All participants (assessors, admins, students) have access to an immutable record of events, promoting trust and accountability.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+**Technology Stack**
 
-## Requirements
+- **Scaffold ETH 2:** Digitest's foundation is built upon Scaffold ETH 2, a robust framework for rapid and efficient Ethereum full-stack development. This framework streamlines the creation of web applications that interact with blockchain networks.
+- **Next.js:** Next.js serves as the web application framework, offering server-side rendering (SSR) and static site generation (SSG) capabilities for optimal performance and user experience.
+- **Hardhat:** We leverage Hardhat, a comprehensive Ethereum development environment, for smart contract compilation, deployment, and testing, ensuring the integrity and reliability of the contracts.
 
-Before you begin, you need to install the following tools:
+**Scaffold ETH 2 Components**
 
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+Digitest effectively utilizes various essential components provided by Scaffold ETH 2:
 
-## Quickstart
+- **Address Management:** Seamless integration with popular web3 wallets like MetaMask and WalletConnect for user authentication and transaction signing, simplifying the user experience.
+- **Web3 Provider Setup:** Efficient establishment of communication between the Digitesr application and the Ethereum network, enabling interaction with smart contracts.
+- **Customizable Components:** We have the flexibility to adapt and extend Scaffold ETH 2's components to meet the specific needs of Digitesr, ensuring a tailored and well-aligned solution.
 
-To get started with Scaffold-ETH 2, follow the steps below:
+**Web Hooks**
 
-1. Clone this repo & install dependencies
+Scaffold ETH 2's web hooks provide a powerful mechanism for optimizing read and write operations within our application. This allows us to optimize data fetching and smart contract interactions, enhancing responsiveness and user experience.
 
-```
-git clone https://github.com/scaffold-eth/scaffold-eth-2.git
-cd scaffold-eth-2
-yarn install
-```
+**Benefits of Scaffold ETH 2**
 
-2. Run a local network in the first terminal:
+- **Reduced Development Time:** Scaffold ETH 2's pre-built components and streamlined development process significantly cut down development time, allowing us to focus on core functionalities and innovation.
+- **Simplified Smart Contract Interaction:** The framework facilitates effortless interaction between the web application and smart contracts, ensuring efficient data storage and retrieval.
+- **Improved Developer Experience:** Scaffold ETH 2 contributes to a more productive development experience by offering a user-friendly environment, modular components, and clear documentation.
 
-```
-yarn chain
-```
+**Getting Started**
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
+1. **Project Setup:**
+   - To contribute to Digitesr's development, clone this repository:
+     ```bash
+     git clone [https://github.com/<USER>/<DIGITEST>.git](https://github.com/taufique2208/EthMumbai.git)
+     ```
+2. **Prerequisites:**
+   - Ensure you have Node.js and npm (or yarn) installed on your system.
+   - Follow the installation instructions for Scaffold ETH 2: [https://github.com/scaffold-eth](https://github.com/scaffold-eth)
 
-3. On a second terminal, deploy the test contract:
+**Images**
 
-```
-yarn deploy
-```
+![Screenshot 2024-03-31 084343](https://github.com/taufique2208/EthMumbai/assets/111975037/cd375164-610a-4183-90b5-6925b72c07ee)
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+![Screenshot 2024-03-31 084929](https://github.com/taufique2208/EthMumbai/assets/111975037/6e649fdf-809d-4a7e-8c5e-2e9aa69139ad)
 
-4. On a third terminal, start your NextJS app:
+![Screenshot 2024-03-31 085017](https://github.com/taufique2208/EthMumbai/assets/111975037/89c6bb48-198a-49f2-9973-72fcaf9278c1)
 
-```
-yarn start
-```
+![Screenshot 2024-03-31 085017](https://github.com/taufique2208/EthMumbai/assets/111975037/6907eb96-0ba7-40c2-8197-45a13027c8b0)
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
+![Screenshot 2024-03-31 084258](https://github.com/taufique2208/EthMumbai/assets/111975037/d23b159e-8b26-46ef-930a-f3d74c673876)
 
-Run smart contract test with `yarn hardhat:test`
+![graph](https://github.com/taufique2208/EthMumbai/assets/111975037/28a7035e-d321-426f-a639-4254a2f062b5)
 
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend in `packages/nextjs/pages`
-- Edit your deployment scripts in `packages/hardhat/deploy`
-
-## Documentation
-
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
-
-To know more about its features, check out our [website](https://scaffoldeth.io).
+![cardona](https://github.com/taufique2208/EthMumbai/assets/111975037/779ab015-bc8e-4217-bf2c-ccb2165c36bc)
 
 
 ## Deployment
@@ -86,8 +74,3 @@ This project can be deployed to various environments. Here's a quick overview:
 | **The Graph QL-API** | [Deployment Query URL](https://api.studio.thegraph.com/query/69521/deployexam/version/latest) |
 
 
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
