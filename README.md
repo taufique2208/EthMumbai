@@ -1,4 +1,4 @@
-# +**Digitest: Decentralizing Online Assessments**
+# **Digitest: Decentralizing Online Assessments**
 
 ## **Introduction**
 
@@ -45,7 +45,7 @@ Scaffold ETH 2's web hooks provide a powerful mechanism for optimizing read and 
    - Ensure you have Node.js and npm (or yarn) installed on your system.
    - Follow the installation instructions for Scaffold ETH 2: [https://github.com/scaffold-eth](https://github.com/scaffold-eth)
 
-**Images**
+## **Images**
 
 ![Screenshot 2024-03-31 084343](https://github.com/taufique2208/EthMumbai/assets/111975037/cd375164-610a-4183-90b5-6925b72c07ee)
 
